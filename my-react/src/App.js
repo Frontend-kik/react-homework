@@ -1,28 +1,40 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React, { createElement } from "react";
 
 function App() {
-  const now = new Date().getFullYear(); // Декларативный стиль начинается здесь
-  // JSX начинается здесь
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <h3>{now}</h3>
-      </header>
-    </div>
+  const now = new Date().getFullYear();
+  // // Перепишем App.js без использования JSX
+  return createElement(
+    "div",
+    { className: "App" },
+    createElement(
+      "header",
+      { className: "App-header" },
+      createElement("img", {
+        src: "logo.svg",
+        className: "App-logo",
+        alt: "logo",
+      }),
+      createElement(
+        "p",
+        "edit",
+        createElement("code", "src/App.js"),
+        "and save to reload."
+      ),
+      createElement(
+        "a",
+        {
+          className: "App-link",
+          href: "https://reactjs.org",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+        "Learn React"
+      ),
+      createElement("h3", now)
+    )
   );
-  // JSX заканчивается здесь
 }
+
 export default App;
