@@ -18,8 +18,9 @@ function App() {
       }),
       createElement(
         "p",
+        null,
         "edit",
-        createElement("code", "src/App.js"),
+        createElement("code", null, "src/App.js"),
         "and save to reload."
       ),
       createElement(
@@ -32,7 +33,7 @@ function App() {
         },
         "Learn React"
       ),
-      createElement("h3", now)
+      createElement("h3", null, now)
     )
   );
 }
