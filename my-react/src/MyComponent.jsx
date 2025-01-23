@@ -1,15 +1,19 @@
 import { useState } from "react";
 
-const products = [
-    {id: 'qwe', name: "Чайник"},
-    {id: 'zxc', name: "Утюг"}
 
-];
 export const MyComponent = () => {
-     return ( <ul>
-            {products.map(({id, name}) => (
-                <li key={id}>{name}</li>
-            ))}
-            </ul>
+    const [showText, setShowText] = useState(true);
+
+
+    const onClick = () => {
+        setShowText(!showText);
+    };
+    const text = <div>Текст</div>
+
+     return (
+        <>
+            {showText && text}
+            <button onClick={onClick}>{showText ? 'Скрыть' : 'Показать'}</button>
+        </>
      );
 };
