@@ -1,19 +1,20 @@
 import { useState } from "react";
+import styles from './MyComponent.module.css';
 
 
 export const MyComponent = () => {
-    const [showText, setShowText] = useState(true);
+    const [showRedText, setRedShowText] = useState(false);
 
 
     const onClick = () => {
-        setShowText(!showText);
+        setRedShowText(!showRedText);
     };
-    const text = <div>Текст</div>
+    const text = <div className={showRedText ? styles.red : styles.white}>Текст</div>
 
      return (
         <>
-            {showText && text}
-            <button onClick={onClick}>{showText ? 'Скрыть' : 'Показать'}</button>
+            { text}
+            <button onClick={onClick}>Изменить цвет текста</button>
         </>
      );
 };
